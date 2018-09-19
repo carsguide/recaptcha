@@ -5,7 +5,6 @@ namespace Carsguide\ReCaptcha\Middleware;
 use Closure;
 use Exception;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Log;
 use ReCaptcha\ReCaptcha;
 
 class ReCaptchaMiddleware
@@ -39,7 +38,6 @@ class ReCaptchaMiddleware
 
         //Request does not have recaptcha response
         if (empty($reCaptchaResponse)) {
-            Log::warning('No ReCaptcha response given');
             throw new Exception('No ReCaptcha response given');
         }
 
@@ -51,7 +49,7 @@ class ReCaptchaMiddleware
         }
 
         if (!$response->isSuccess()) {
-            return $this->json('ReCaptcha response failed', 422);
+            return $this->json('ReCaptcha verification failed', 422);
         }
 
         return $next($request);
