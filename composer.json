@@ -1,9 +1,9 @@
 {
-    "name": "carsguide/auth-manager",
+    "name": "carsguide/recaptcha",
     "description": "ReCaptcha middleware for Laravel",
     "keywords": [
         "ReCaptcha",
-        "Lumen auth0"
+        "Lumen"
     ],
     "homepage": "https://github.com/carsguide/recaptcha",
     "license": "MIT",
