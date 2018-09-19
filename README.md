@@ -1,2 +1,2 @@
-# reCaptchaMiddleware
-Middleware for reCaptcha
+# recptcha
+reCaptcha
