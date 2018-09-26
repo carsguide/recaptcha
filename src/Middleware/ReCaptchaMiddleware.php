@@ -38,7 +38,7 @@ class ReCaptchaMiddleware
 
         //Request does not have recaptcha response
         if (empty($reCaptchaResponse)) {
-            throw new Exception('No ReCaptcha response given');
+            return $this->json('No reCaptcha response given', 422);
         }
 
         //Verify response
