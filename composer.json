@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": "^7.3",
-        "illuminate/http": "^7.0",
+        "illuminate/http": "^8.0",
         "google/recaptcha": "^1.2"
     },
     "require-dev": {
