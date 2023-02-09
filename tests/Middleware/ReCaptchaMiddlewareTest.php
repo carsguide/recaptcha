@@ -12,7 +12,7 @@ use ReCaptcha\Response;
 
 class ReCaptchaMiddlewareTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -28,7 +28,8 @@ class ReCaptchaMiddlewareTest extends TestCase
         $middleware = new ReCaptchaMiddleware(new ReCaptcha('recaptchaSecret'));
 
         try {
-            $middleware->handle($this->request, function () {});
+            $middleware->handle($this->request, function () {
+            });
         } catch (Exception $e) {
             $this->assertEquals('No ReCaptcha response given', $e->getMessage());
         }
@@ -50,7 +51,9 @@ class ReCaptchaMiddlewareTest extends TestCase
 
         $middleware = new ReCaptchaMiddleware($mock);
 
-        $this->assertTrue($middleware->handle($this->request, function () {return true;}));
+        $this->assertTrue($middleware->handle($this->request, function () {
+            return true;
+        }));
     }
 
     /**
@@ -69,7 +72,8 @@ class ReCaptchaMiddlewareTest extends TestCase
 
         $middleware = new ReCaptchaMiddleware($mock);
 
-        $statusCode = $middleware->handle($this->request, function () {})->status();
+        $statusCode = $middleware->handle($this->request, function () {
+        })->status();
 
         $this->assertEquals(422, $statusCode);
     }
